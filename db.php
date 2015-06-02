@@ -50,6 +50,14 @@ class db {
                     PRIMARY KEY  (ID)
                 )";
         $this->query($query);
+
+        $query = "CREATE TABLE IF NOT EXISTS rfid (
+                    ID BIGINT AUTO_INCREMENT,
+                    guid VARCHAR(100),
+                    date_created DATETIME,
+                    PRIMARY KEY  (ID)
+                )";
+        $this->query($query);
     }
     //end create_tables
 
