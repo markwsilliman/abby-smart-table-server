@@ -55,7 +55,8 @@ class db {
 
     //query
     public function query($sql) {
-        return $this->conn->query($sql) or die("mysqli query 1 [" . htmlspecialchars($sql) . "]");
+        $result = $this->conn->query($sql) or die("mysqli query 1 [" . htmlspecialchars($sql) . "]");
+        return $result;
     }
     //end query
 
