@@ -129,7 +129,20 @@ class touch_report {
         $change_in_y = $this->most_recent_object[$leading_point]->y - $mid_of_non_leading_points->y;
         $change_in_x = $this->most_recent_object[$leading_point]->x - $mid_of_non_leading_points->x;
 
-        $radians = atan($change_in_y/$change_in_x);
+        $radians = abs(atan($change_in_y/$change_in_x));
+        if($change_in_x >= 0 && $change_in_y >= 0) {
+            //no action
+        }
+        elseif($change_in_x < 0 && $change_in_y >= 0) {
+            $radians = pi() - $radians;
+        }
+        elseif($change_in_x < 0 && $change_in_y < 0) {
+            $radians += pi();
+        }
+        elseif($change_in_x > 0 && $change_in_y < 0) {
+            $radians = (2 * pi()) - $radians;
+        }
+
         $this->orientation_in_radians = $radians;
     }
     //end determine_objects_orientation
