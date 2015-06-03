@@ -48,6 +48,7 @@ if(!$last_object) {
     </script>
 </head>
 <body>
+<div>Orientation:<?=round(rad2deg($tr->ret_orientation_in_radians()));?> degrees</div>
 <div id="chart_div" style="width: 900px; height: 506px;"></div>
 </body>
 </html>
